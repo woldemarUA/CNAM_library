@@ -1,0 +1,17 @@
+# Ignore class files
+*.class
+
+# Ignore maven and gradle build directories
+target/
+build/
+
+# Ignore IDE project settings
+.vscode/
+.idea/
+
+# Ignore log files
+*.log
+
+# Ignore package manager lock files
+*.jar
+*.war
