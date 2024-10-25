@@ -5,12 +5,27 @@ import documents.Document;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe abstraite représentant un utilisateur du système.
+ * Elle contient les attributs et les méthodes communs à tous les types
+ * d'utilisateurs.
+ */
+
 public abstract class Utilisateur {
     int id;
     String nom;
     String prenom;
     int age;
     List<Document> borrowedList;
+
+    /**
+     * Constructeur pour créer un nouvel utilisateur.
+     * 
+     * @param id     L'identifiant unique de l'utilisateur.
+     * @param nom    Le nom de l'utilisateur.
+     * @param prenom Le prénom de l'utilisateur.
+     * @param age    L'âge de l'utilisateur (doit être supérieur ou égal à 0).
+     */
 
     public Utilisateur(int id, String nom, String prenom, int age) {
 
@@ -49,6 +64,13 @@ public abstract class Utilisateur {
         return this.age;
     }
 
+    /**
+     * Définit l'âge de l'utilisateur.
+     * 
+     * @param age L'âge à définir (doit être supérieur ou égal à 0).
+     * @throws IllegalArgumentException Si l'âge est négatif.
+     */
+
     public void setAge(int age) {
         if (age < 0) {
             throw new IllegalArgumentException("L `age ne peut pas etre negatif.");
@@ -56,10 +78,28 @@ public abstract class Utilisateur {
         this.age = age;
     }
 
-    public void emprunter(Document d) {
-    }
+    /**
+     * Méthode abstraite permettant à un utilisateur d'emprunter un document.
+     * 
+     * @param d Le document à emprunter.
+     */
+
+    public abstract void emprunter(Document d);
+
+    /**
+     * Méthode permettant de rendre un document emprunté.
+     * 
+     * @param d Le document à rendre.
+     */
 
     public void rendre(Document d) {
+        if (borrowedList.remove(d)) {
+            System.out.println("Document " + d.getTitre() + " était rendu par utilisateur: " + getNomComplete());
+        } else {
+            System.out.println("Document " + d.getTitre()
+                    + " n'est pas dans la liste d'emprunt de l'utilisateur: AJOUTE UTILISATEUR"
+                    + getNomComplete());
+        }
     }
 
     @Override
