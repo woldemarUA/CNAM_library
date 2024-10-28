@@ -56,7 +56,9 @@ public class Visiteur extends Utilisateur implements Resumable {
 
     public void resumer(Document d) {
 
-        System.out.println(getNomComplete() + " a résumé de lire le document: " + d.getTitre());
+        System.out.println("Résumé de document: ");
+        System.out.println("Titre: " + d.getTitre());
+        System.out.println("Etat: " + d.getEtat());
     }
 
     @Override
