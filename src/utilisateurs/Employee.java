@@ -3,6 +3,7 @@ package utilisateurs;
 import documents.Document;
 
 import documents.EtatDocument;
+import gestionEmpruntsPenalites.Catalogue;
 
 /**
  * Classe représentant un employé du système.
@@ -34,7 +35,8 @@ public class Employee extends Utilisateur {
      */
 
     public String ajouterDocument(Document d) {
-        return "Document " + d.toString() + " était ajouté avec success";
+
+        return "Document " + d.toString() + " était ajouté à catalogue avec success";
     }
 
     /**
